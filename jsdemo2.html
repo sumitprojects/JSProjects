@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="form">
+        <input type="number" name="op1">
+        <input type="number" name="op2">
+        <input type="number" name="op3">
+        <input type="button" name="submit" value="+" onclick="add();">
+    </form>
+
+    ans:
+    <p id="ans"></p>
+</body>
+<script>
+    var data = [];
+
+    function validate(b) {
+        for (var i = 0; i < b.length - 1; i++) {
+            if (b[i].value === "" || b[i].value === undefined || b[i].value === null || !(Number.parseInt(b[i].value) > 0 || Number.parseInt(b[i].value) <= 0)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function add() {
+        var a = document.getElementsByTagName('input');
+        let c = document.getElementById('ans');
+        if (validate(a)) {
+            var sum = 0;
+            for (var i = 0; i < (a.length - 1); i++) {
+                sum = sum + Number.parseInt(a[i].value);
+            }
+            c.innerHTML = sum;
+        } else {
+            c.innerHTML = "Not a Number";
+        }
+    }
+</script>
+
+</html>

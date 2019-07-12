@@ -1,0 +1,87 @@
+<html>
+
+<style>
+    .error {
+        outline: none;
+        border: none;
+        border: 2px solid red;
+    }
+    
+    .success {
+        outline: none;
+        border: none;
+        border: 2px solid green;
+    }
+    
+    .warning {
+        outline: none;
+        border: none;
+        border: 2px solid orange;
+    }
+</style>
+
+<body>
+    <form name="myform" id="myform">
+        <div>
+            <label for="">Name:</label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label for="">Password:</label>
+            <input type="password" name="password"><br/>
+        </div>
+        <div>
+            <input type="button" value="register" onclick="validate();">
+        </div>
+    </form>
+</body>
+<script>
+    var form = document.myform || document.getElementsById('myform');
+    console.log(form);
+    for (let index = 0; index < form.length - 1; index++) {
+        form[index].addEventListener("blur", function() {
+            if (form[index].type === "number" || form[index].type === "text" || form[index].type === "email" || form[index].type === "password") {
+                if (form[index].value === "" || form[index].value === undefined || form[index].value === null) {
+                    form[index].classList.remove("success");
+                    form[index].classList.remove("warning");
+                    form[index].classList.add("error");
+                } else {
+                    form[index].classList.remove("warning");
+                    form[index].classList.remove("error");
+                    form[index].classList.add("success");
+                }
+            }
+        });
+
+        form[index].addEventListener("focus", function() {
+            if (form[index].type === "number" || form[index].type === "text" || form[index].type === "email" || form[index].type === "password") {
+                form[index].classList.add("warning");
+            }
+        });
+    };
+
+    var validate = function() {
+        for (let index = 0; index < form.length - 1; index++) {
+            const element = form[index];
+            if (element.type === "text") {
+                if (element.value === "" || element.value === undefined || element.value === null) {
+                    element.classList.remove("success");
+                    element.classList.add("error");
+                } else {
+                    element.classList.remove("error");
+                    element.classList.add("success");
+                }
+            } else if (element.type === "password") {
+                if (element.value === "" || element.value === undefined || element.value === null) {
+                    element.classList.remove("success");
+                    element.classList.add("error");
+                } else {
+                    element.classList.remove("error");
+                    element.classList.add("success");
+                }
+            }
+        }
+    };
+</script>
+
+</html>

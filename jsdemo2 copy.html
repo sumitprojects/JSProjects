@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <input type="number" name="op1">
+        <input type="number" name="op2">
+        <input type="button" name="submit" value="+" onclick="add();">
+        <input type="button" name="submit" value="-" onclick="sub();">
+        <input type="button" name="submit" value="x" onclick="mul();">
+        <input type="button" name="submit" value="/" onclick="div();">
+        <input type="button" name="submit" value="%" onclick="ram();">
+    </form>
+
+    ans:
+    <p id="ans"></p>
+</body>
+<script>
+    function add() {
+        var a = document.form.op1.value;
+        var b = document.form.op2.value;
+        var c = document.getElementById("ans");
+
+        if (isFinite(a) && isFinite(b)) {
+            c.innerHTML = (parseFloat(a) + parseFloat(b));
+        } else {
+            c.innerHTML = "Inputs must be numbers!";
+        }
+    }
+
+    function sub() {
+        var a = document.form.op1.value;
+        var b = document.form.op2.value;
+        var c = document.getElementById("ans");
+
+        if (isFinite(a) && isFinite(b)) {
+            c.innerHTML = (parseFloat(a) - parseFloat(b));
+        } else {
+            c.innerHTML = "Inputs must be numbers!";
+        }
+    }
+
+    function mul() {
+        var a = document.form.op1.value;
+        var b = document.form.op2.value;
+        var c = document.getElementById("ans");
+
+        if (isFinite(a) && isFinite(b)) {
+            c.innerHTML = (parseFloat(a) * parseFloat(b));
+        } else {
+            c.innerHTML = "Inputs must be numbers!";
+        }
+    }
+
+    function div() {
+        var a = document.form.op1.value;
+        var b = document.form.op2.value;
+        var c = document.getElementById("ans");
+
+        if (isFinite(a) && isFinite(b)) {
+            c.innerHTML = (parseFloat(a) / parseFloat(b));
+        } else {
+            c.innerHTML = "Inputs must be numbers!";
+        }
+    }
+
+    function ram() {
+        // var a = document.form.op1.value;
+        // var b = document.form.op2.value;
+
+        var a = document.getElementsByName('op1').value,
+            b = document.getElementsByName('op2').value,
+            c = document.getElementById("ans");
+
+        if (isFinite(a) && isFinite(b)) {
+            c.innerHTML = (parseFloat(a) % parseFloat(b));
+        } else {
+            c.innerHTML = "Inputs must be numbers!";
+        }
+    }
+</script>
+
+</html>

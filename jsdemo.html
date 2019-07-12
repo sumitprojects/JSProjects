@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>55555555
+<script>
+    var a = 10,
+        b = "20",
+        c = 30,
+        choice = '-';
+
+    var op = !(10 > 20) && (10 < 20);
+    console.log("op =>", op);
+
+
+    if (a < b) {
+        console.log("a>b =>", a < b);
+    }
+
+    if (a > b) {
+        console.log("a is greater");
+    } else {
+        console.log("b is greater");
+    }
+
+    if (a > b && a > c) {
+        console.log("a is greater");
+    } else if (b > a && b > c) {
+        console.log("b is greater");
+    } else if (c > a && c > b) {
+        console.log("c is greater");
+    } else {
+        console.log("all are same");
+    }
+
+    if (typeof a === "number" && typeof b === "number") {
+        switch (choice) {
+            case '+':
+                c = a + b;
+                console.log("ans + => ", c);
+                break;
+            case '-':
+                c = a - b;
+                console.log("ans - => ", c);
+                break;
+            default:
+                console.log('Wrong choice');
+        }
+    } else {
+        console.log("a , b is not a number");
+    }
+</script>
+
+</html>

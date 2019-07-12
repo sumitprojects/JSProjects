@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var d = "visrutgadhiya";
+    console.log(d.length, d.toUpperCase());
+
+    console.log(d.charAt(4), d.concat(" hello"));
+
+    console.log(d.indexOf("sumit"), d.lastIndexOf("more"));
+
+    console.log(d.search(/vi/gi), d.match(/vi/gi));
+
+    console.log(d.search("\\d"), d.search("[0-12]+"), d.search("[0-12]*"));
+
+    console.log(d.search("\\w\\s\\w"), d.search("^[\\w\\s\\w]*$"));
+
+    console.log(d.replace(/visrut/gi, "123"));
+
+    console.log(d.substring(0, 5), d.slice(-9, -4));
+</script>
+
+</html>

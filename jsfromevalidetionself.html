@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<style>
+    .error {
+        outline: none;
+        border: none;
+        border: 2px solid red;
+    }
+    
+    .success {
+        outline: none;
+        border: none;
+        border: 2px solid green;
+    }
+    
+    .warning {
+        outline: none;
+        border: none;
+        border: 2px solid rgb(5, 255, 1);
+    }
+</style>
+
+<body>
+    <form name="form1" id="form1">
+        <div>
+            <label for="">Name</label>
+            <input type="text" name="name" error="username is invalid" success="Valid name">
+            <span></span>
+        </div>
+        <div>
+            <label for="">Password</label>
+            <input type="password" name="password" error="password is invalid" success="Valid password">
+            <span></span>
+        </div>
+        <div>
+            <input type="button" id="login" value="ragistar">
+        </div>
+    </form>
+</body>
+<script>
+    const validation = {
+        blankValidator: function(element) {
+            const errorTag = element.parentNode.lastChild.previousSibling;
+            if (element.type === "number" || element.type === "text" || element.type === "email" || element.type === "password") {
+                if (element.value === "" || element.value === undefined || element.value === null) {
+                    element.classList.remove("success");
+                    element.classList.remove("warning");
+                    element.classList.add("error");
+                    errorTag.innerHTML = element.getAttribute("error");
+                } else {
+                    element.classList.remove("warning");
+                    element.classList.remove("error");
+                    element.classList.add("success");
+                    errorTag.innerHTML = "success";
+                    errorTag.innerHTML = element.getAttribute("success");
+                }
+            }
+        }
+    };
+
+    var form = document.form1 || document.getElementsById('form1');
+    for (let index = 0; index < form.length - 1; index++) {
+
+        form[index].addEventListener("blur", function() {
+            validation.blankValidator(form[index]);
+        });
+
+        form[index].addEventListener("focus", function() {
+            if (form[index].type === "number" || form[index].type === "text" || form[index].type === "email" || form[index].type === "password") {
+                form[index].classList.add("warning");
+            }
+        });
+    };
+
+    var validate = function() {
+        for (let index = 0; index < form.length - 1; index++) {
+            const element = form[index];
+            validation.blankValidator(element);
+        }
+    };
+
+    document.getElementById('login').addEventListener('click', validate);
+</script>
+
+</html>
