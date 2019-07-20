@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <select id="country">
+            <option disabled>Select Country</option>
+        </select>
+        <select id="states">
+            <option disabled>Select Country</option>
+        </select>
+    </form>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        var list = {};
+        $.ajax({
+            url: "list.json",
+            method: "get",
+            success: function(result) {
+                var countryList = result.countries;
+                for (let index = 0; index < countryList.length; index++) {
+                    var element = countryList[index];
+                    list[element.country] = element.states;
+                    $('#country').append("<option values=" + element.country + ">" + element.country + "</option>");
+                }
+            },
+            error: function(result) {
+
+            }
+        });
+
+        $('#country').on('change', function() {
+            $('#states').empty();
+            var stateList = list[$(this).val()];
+            for (let index = 0; index < stateList.length; index++) {
+                const element = stateList[index];
+                $('#states').append("<option values=" + element + ">" + element + "</option>");
+
+            }
+            // $.ajax({
+            //     url: "list.json",
+            //     method: "get",
+            //     success: function(result) {
+            //         var countryList = result.countries;
+            //         for (let index = 0; index < countryList.length; index++) {
+            //             var element = countryList[index];
+            //             if ($('#country').val() === element.country) {
+            //                 var statesList = element.states;
+            //                 for (let index2 = 0; index2 < statesList.length; index2++) {
+            //                     var element2 = statesList[index2];
+            //                     $('#states').append("<option values=" + element2 + ">" + element2 + "</option>");
+            //                 }
+            //             }
+            //         }
+            //     },
+            //     error: function(result) {
+
+            //     }
+            // });
+        });
+    });
+</script>
+
+</html>
