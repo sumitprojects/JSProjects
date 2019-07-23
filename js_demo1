@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+</body>
+<script>
+    document.write('hello');
+    document.getElementById('demo').innerHTML = "test";
+    console.log('i am console.');
+    alert('sumit');
+</script>
+
+<script type="text/javascript">
+    var a = 10;
+    let b = "20";
+    const c = 30.33;
+    console.log(a, b, c);
+    console.log(typeof a, typeof b, typeof c);
+    a = "sumit";
+    b = 20;
+
+    var num = 10;
+    var str = "sumit";
+    var arr = [10, 20, 30];
+    var jsonObject = {
+        name: "sumit",
+        age: "10"
+    };
+    const fun = function() {
+        console.log('sumit');
+    };
+    fun();
+    console.log(typeof num, typeof str, typeof arr, typeof jsonObject, typeof fun);
+</script>
+
+
+<script>
+    // NaN => Not a number
+    // undefined => default value;
+    // null => value as blank
+    var l = parseInt("a20") + "  " + (20).toString() + " " + parseFloat(20.333);
+    console.log(l);
+</script>
+
+
+<script>
+    function add(a, b) {
+        return a + b;
+    }
+    var add = function(a, b) {
+        return a + b;
+    };
+
+    console.log("add =>", add(10, 20));
+</script>
+
+
+<script>
+    const sumitCalculator = {
+        add: function(a, b) {
+            return a + b;
+        },
+        sub: function(a, b) {
+            return a + b;
+        }
+    };
+    console.log("add =>", sumitCalculator.add(10, 20));
+</script>
+
+</html>
